@@ -33,7 +33,7 @@ Khai báo trong MainActivity:
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference dataBaseAuthor = database.getReference("table_author");
     
-- Khi muốn thêm 1 Author vào database
+Khi muốn thêm 1 Author vào database:
 
     String id = dataBaseAuthor.push().getKey();
     Author author = new Author(id, authorName);
@@ -45,11 +45,10 @@ Khai báo trong MainActivity:
     });
     
 ![Capture1](https://user-images.githubusercontent.com/68551096/123071931-488a8d80-d43f-11eb-8052-03b46ddc780c.PNG)
-- Khi muốn update Author => ta cần id của author đó
-
-  DatabaseReference databaseReference = database.getReference("table_author").child(athorId);
-  Author author = new Author(athorId, authorName);
-  databaseReference.setValue(author);
+Khi muốn update Author => ta cần id của author đó:
+        DatabaseReference databaseReference = database.getReference("table_author").child(athorId);
+        Author author = new Author(athorId, authorName);
+        databaseReference.setValue(author);
   
 Câu lệnh trên giúp ta update cả đối tượng author vào database tuy nhiên nếu bạn chỉ muốn cập nhật 1 thuộc tính mà k cần viết lại cả đối tượng thì ta làm như sau:
   DatabaseReference databaseReference = database.getReference("table_author").child(athorId);
